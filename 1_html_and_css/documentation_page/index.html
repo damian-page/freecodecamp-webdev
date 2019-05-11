@@ -1,0 +1,169 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mock Server Docs</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- navigation -->
+    <nav id="navbar">
+      <header>
+        <i class="fas fa-home"></i>
+        Mock Server
+      </header>
+      <ul>
+        <a href="#what_is_mock_server" class="nav-link"><li>What is Mock Server</li></a>
+        <a href="#demo" class="nav-link"><li>DEMO</li></a>
+        <a href="#installation" class="nav-link"><li>Installation</li></a>
+        <a href="#overview" class="nav-link"><li>Overview</li></a>
+        <a href="#features" class="nav-link"><li>Features</li></a>
+        <a href="#format" class="nav-link"><li>Format</li></a>
+        <a href="#BUG_REPORT" class="nav-link"><li>Bug Report</li></a>
+        <a href="#reference" class="nav-link"><li>Reference</li></a>
+      </ul>
+    </nav>
+    <!-- main -->
+    <main id="main-doc">
+      <!-- section -->
+      <section class="main-section" id="what_is_mock_server">
+        <header>What is Mock Server</header>
+        <p>
+          Simple mock server for REST and XML-RPC API It can mock GET, POST,
+          PUT, PATCH, DELETE and some more rarely used HTTP methods.
+        </p>
+      </section>
+
+      <section class="main-section" id="demo">
+        <header>DEMO</header>
+        <p>Setup Expectations</p>
+        <p>An expectation contains:</p>
+        <ul>
+          <li>
+            request matcher - used to match which requests this expectation
+            should be applied to
+          </li>
+          <li>
+            action - what action to take, actions include response, forward,
+            callback and error
+          </li>
+          <li>times - how many times the action should be taken</li>
+          <li>timeToLive - how long the expectation should stay active</li>
+          <li>
+            MockServer will play expectations in the exact order they are added.
+            For example, if an expectation A is added with Times.exactly(3) then
+            expectation B is added with Times.exactly(2) with the same request
+            matcher they will be applied in the following order A, A, A, B, B.
+          </li>
+        </ul>
+
+        <code>
+          var mockServerClient = require('mockserver-client').mockServerClient;
+          mockServerClient("localhost", 1080).mockAnyResponse({ "httpRequest": {
+          "method": "POST", "path": "/login", "body": "{username: 'foo',
+          password: 'bar'}" }, "httpResponse": { "statusCode": 302, "headers": {
+          "Location" : [ "https://www.mock-server.com" ] }, "cookies": {
+          "sessionId" : "2By8LOhBmaW5nZXJwcmludCIlMDAzMW" } } });
+        </code>
+      </section>
+      <section class="main-section" id="installation">
+        <header>Installation</header>
+        <p>
+          Install with pip:
+        </p>
+        <code>$ pip install mock-server</code>
+        <p>Or install with easy_install:</p>
+
+        <code>$ easy_install mock-server</code>
+        <p>And after run:</p>
+
+        <code>$ mock-server --dir=/path/to/api</code>
+        <p>
+          It will be listening on port 8888 and wait for your HTTP requests.
+        </p>
+      </section>
+
+      <section class="main-section" id="overview">
+        <header>Overview</header>
+        <p>
+          For create mock for url path go to:
+        </p>
+        <code>http://localhost:8888/__manage/create</code>
+        <p>Mocked GET /user/tom:</p>
+        <code
+          >$ curl -v -X GET http://demo.mockapi.org/user/tom > GET /user/tom
+          HTTP/1.1 > Host: demo.mockapi.org > Accept: */* > < HTTP/1.1 200 OK <
+          Access-Control-Allow-Origin: * < Content-Type: application/json;
+          charset=utf-8 < Content-Length: 64 < Server: TornadoServer/2.4.1 < {
+          "name": "Tom", "surname": "Smith", "age": 22 }</code
+        >
+      </section>
+
+      <section class="main-section" id="features">
+        <header>Features</header>
+        <ul>
+          <li>Mocking REST API.</li>
+          <li>Mocking RPC API (xml, json).</li>
+          <li>
+            Upstream server proxy (proxy an existing api).
+          </li>
+          <li>
+            Variables in url path.
+          </li>
+          <li>
+            Simple api documentation (markdown).
+          </li>
+          <li>
+            Api authentication (HTTP Basic authentication).
+          </li>
+        </ul>
+      </section>
+
+      <section class="main-section" id="format">
+        <header>Format</header>
+        <p>
+          response content format:
+        </p>
+        <code>
+          %METHOD%_%STATUS%.%FORMAT%
+        </code>
+        <p>response headers format:</p>
+        <code> %METHOD%_H_%STATUS%.%FORMAT% </code>
+        <code>
+          root_dir/ GET_200.json # response content for GET / GET_H_200.json #
+          headers for GET / user/ DELETE_404.xml # response content for DELETE
+          /user.xml?__statusCode=404 POST_200.json # response content for POST
+          /user POST_H_200.json # headers for POST /user
+        </code>
+      </section>
+
+      <section class="main-section" id="BUG_REPORT">
+        <header>Bug report</header>
+        <p>
+          If you have any trouble, report bug at GitHub Issue
+          https://github.com/tomashanacek/mock-server/issues
+        </p>
+      </section>
+
+      <section class="main-section" id="reference">
+        <header>Reference</header>
+        <p>
+          All the documentation in this page is taken from
+          <a href="https://mock-server.readthedocs.io/en/latest/#"
+            >Mock Server Docs</a
+          >
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
