@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Customer Feedback Form</title>
+  </head>
+  <body>
+    <h1 id="title">Customer Feedback Form</h1>
+    <p id="description">
+      Please fill out the following customer service feedback form if you would
+      like to leave a suggestion, if you have a complaint or if you have any
+      questions
+    </p>
+    <form action="" id="survey-form">
+      <!-- name -->
+      <div class="row">
+        <div class="label">
+          <label for="name" id="name-label">Name:</label>
+        </div>
+        <div class="right">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+        </div>
+      </div>
+      <!-- email -->
+      <div class="row">
+        <div class="label">
+          <label for="email" id="email-label">Email:</label>
+        </div>
+        <div class="right">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email address"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- id number -->
+      <div class="row">
+        <div class="label">
+          <label for="number" id="number-label">Customer Number:</label>
+        </div>
+        <div class="right">
+          <input
+            type="number"
+            id="number"
+            name="number"
+            placeholder="Customer Number"
+            min="1"
+            max="255"
+          />
+        </div>
+      </div>
+
+      <!-- product type -->
+      <div class="row">
+        <div class="label">
+          <label for="product" id="number-label">Product:</label>
+        </div>
+        <div class="right">
+          <select id="dropdown" name="product">
+            <option value="broadband">Broadband</option>
+            <option value="tv">TV</option>
+            <option value="phone">Phone</option>
+          </select>
+        </div>
+      </div>
+      <!-- request type -->
+      <div class="row">
+        <div class="label">
+          <label for="type" id="type">Request type:</label>
+        </div>
+        <div class="right">
+          <ul id="type">
+            <li>
+              <input id="complaint" type="checkbox" name="type" value="1" />
+              <label for="complaint">
+                Complaint
+              </label>
+            </li>
+
+            <li>
+              <input id="suggestion" type="checkbox" name="type" value="2" />
+              <label for="suggestion">
+                Suggestion
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Comments -->
+      <div class="row">
+        <div class="label">
+          <label for="comments" id="comments">Comments:</label>
+        </div>
+        <div class="right">
+          <textarea
+            id="comments"
+            name="comments"
+            placeholder="Enter your comment here..."
+          ></textarea>
+        </div>
+      </div>
+      <!-- recommend -->
+      <div class="row">
+        <div class="label">
+          <label for="spam" id="spam-label">Would you like receive spam?</label>
+        </div>
+        <div class="right">
+          <ul id="spam">
+            <li>
+              <input id="yes" type="radio" name="spam" value="1" />
+              <label for="yes">
+                Yes
+              </label>
+            </li>
+
+            <li>
+              <input id="no" type="radio" name="spam" value="0" />
+              <label for="no">
+                Nope
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button id="submit" type="submit">Submit</button>
+    </form>
+  </body>
+</html>

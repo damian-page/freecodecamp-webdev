@@ -1,0 +1,106 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <title>Cat and Fish World</title>
+  </head>
+  <body>
+    <header id="header">
+      <div class="column">
+        <img id="header-img"  src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80" alt="Cat as a logo">
+        <!-- <i class="fas fa-cat"></i> -->
+      </div>
+
+      <div class="column">
+        <nav id="nav-bar">
+          <a href="#news" class="active">Home</a>
+          <a class="nav-link" href="#news">News</a>
+          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="#about">About</a>
+          <a
+            href="#news"
+            class="hamburger nav-link"
+          >
+            <i class="fa fa-bars"></i>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <div id="content">
+      <section id="news">
+        <h1>Latest News...</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed
+          suscipit nunc. Morbi vitae metus orci. Etiam ornare purus in dapibus
+          tristique. Proin pellentesque tincidunt venenatis. Donec nisl elit,
+          bibendum nec neque eu, imperdiet placerat lacus. Aliquam gravida
+          tempus tortor a mattis. Vivamus diam nulla, sodales eget dolor eget,
+          malesuada pharetra erat. In hac habitasse platea dictumst.
+        </p>
+        <div class="video-wrapper">
+          <iframe
+            width="560"
+            height="349"
+            id="video"
+            src="https://www.youtube.com/embed/WQlISC-N5Xw"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h1>Subscribe to our Newsletter</h1>
+        <form action="https://www.freecodecamp.com/email-submit" id="form">
+          <div class="container" style="background-color:white">
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              required
+              id="name"
+            />
+            <input
+              type="email"
+              placeholder="Email address"
+              name="email"
+              required
+              id="email"
+            />
+          </div>
+          <div class="container">
+            <input type="submit" id="submit" value="Subscribe" />
+          </div>
+        </form>
+      </section>
+
+      <section id="about">
+        <h1>About Great Fish...</h1>
+        <p>
+          Phasellus efficitur tempor tortor, vel tempus augue condimentum sed.
+          Morbi sit amet massa eget magna iaculis finibus. Sed tempor nisl sit
+          amet leo dignissim malesuada. Suspendisse eget elementum tellus.
+          Praesent urna nisi, dictum quis nulla eu, scelerisque gravida velit.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+          scelerisque turpis sed diam cursus malesuada. Suspendisse sit amet
+          dignissim arcu. Praesent dictum pretium tincidunt.
+        </p>
+      </section>
+    </div>
+
+    <div id="footer">
+      <p>&copy; 2019 Damian Pagowski</p>
+      <p></p>
+    </div>
+  </body>
+</html>
